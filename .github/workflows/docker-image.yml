@@ -23,7 +23,7 @@ jobs:
       run: docker login -u "${{ secrets.PRIVATE_REGISTRY_USERNAME }}" -p "${{ secrets.PRIVATE_REGISTRY_PASSWORD }}" ${{ secrets.PRIVATE_REGISTRY }}
 
     - name: Push Docker image to private registry
-      run: docker push ${{ secrets.PRIVATE_REGISTRY }}/dkhb/${{ github.event.inputs.target_image }}
+      run: docker push ${{ secrets.PRIVATE_REGISTRY }}/dkhb/meilisearch-mini-dashboard:${{ github.event.inputs.image_version }} 
 
     - name: Log out from private registry
       run: docker logout ${{ secrets.PRIVATE_REGISTRY }}
